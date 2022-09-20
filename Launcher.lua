@@ -25,7 +25,7 @@ local Notifications = Instance.new("Frame")
 Notifications.Name = "ScriptNotification"
 Notifications.BackgroundTransparency = 1
 Notifications.Size = UDim2.new(0.182, 0, 1, 0)
-Notifications.Position = UDim2.new(0.8, 0, 0, 0)
+Notifications.Position = UDim2.new(0.818, 0, 0, 0)
 Notifications.Parent = Screen
 local NotificationsList = Instance.new("UIListLayout")
 NotificationsList.Parent = Notifications
@@ -45,7 +45,11 @@ function ScriptNotification(text, time)
     notif.Parent = Notifications
     notif.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
     notif.Position = UDim2.new(-0.00114206225, 0, 0.916703701, 0)
-    notif.Size = UDim2.new(0, 346, 0, 66)
+    notif.BackgroundTransparency = 1
+    notif.Size = UDim2.new(0.991, 0, 0.081, 0)
+    TweenService:Create(notif, TweenInfo.new(0.5), {
+        ["BackgroundTransparency"] = 0
+    }):Play()
 
     UICorner.CornerRadius = UDim.new(0, 12)
     UICorner.Parent = notif
@@ -90,7 +94,12 @@ function ScriptNotification(text, time)
         ["Size"] = UDim2.new(0, 0, 0.03, 0),
         ["Position"] = UDim2.new(0.5, 0, 0.94, 0)
     }):Play()
-    delay(time, function()
+    delat(time, function()
+        TweenService:Create(notif, TweenInfo.new(0.5), {
+            ["BackgroundTransparency"] = 1
+        }):Play()
+    end)
+    delay(time + 0.5, function()
         notif:Destroy()
     end)
 end
