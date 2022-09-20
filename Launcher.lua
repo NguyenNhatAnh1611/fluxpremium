@@ -8,7 +8,7 @@ local Response = syn.request({
     Headers = {
         ["Content-Type"] = "application/json"
     }, 
-    Body = HttpService:JSONEncode({['key'] = _G.key} )
+    Body = HttpService:JSONEncode({['key'] = _G.Key} )
 })
 
 local Screen = Instance.new("ScreenGui")
@@ -20,7 +20,6 @@ Notifications.Name = "ScriptNotification"
 Notifications.BackgroundTransparency = 1
 Notifications.Size = UDim2.new(0, 359, 0, 810)
 Notifications.Position = UDim2.new(0.725, 0, 0, 0)
-Notifications.AnchorPoint = Vector2.new(0, 0)
 Notifications.Parent = Screen
 local NotificationsList = Instance.new("UIListLayout")
 NotificationsList.Parent = Notifications
@@ -98,7 +97,7 @@ delay(15, function()
     end
 end)
 repeat wait() until Response.Body ~= nil
-if Response.Body["VAILD"] == true and Response.Body["HWID"] == _G.Key and Response.Body["USER_ID"] ~= nil and Response.Body["IP"] ~= nil then
+if Response.Body["VAILD"] == true then
     Connected = true
     ScriptNotification("Verification Success!")
 else
