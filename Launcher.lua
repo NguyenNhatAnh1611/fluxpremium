@@ -101,5 +101,6 @@ if Response.Body["VAILD"] == true and Response.Body["HWID"] == _G.Key and Respon
     Connected = true
     ScriptNotification("Verification Success!")
 else
-    Player:Kick("\n Invaild HWID \n (Error Code: 1)")
+    print(Response.Body)
+    --Player:Kick("\n Invaild HWID \n (Error Code: 1)")
 end
