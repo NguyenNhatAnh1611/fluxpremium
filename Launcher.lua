@@ -102,5 +102,4 @@ if Response.Body["VAILD"] == true and Response.Body["HWID"] == _G.Key and Respon
     ScriptNotification("Verification Success!")
 else
     print(Response.Body)
-    --Player:Kick("\n Invaild HWID \n (Error Code: 1)")
 end
