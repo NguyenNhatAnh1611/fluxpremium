@@ -97,7 +97,8 @@ delay(15, function()
     end
 end)
 repeat wait() until Response.Body ~= nil
-if Response.Body["VAILD"] == true and Response.Body["HWID"] == _G.Key and Response.Body["USER_ID"] ~= nil and Response.Body["IP"] ~= nil then
+local Status = HttpService:JSONDecode(Response.Body)
+if Status["VAILD"] == true and Status["HWID"] == _G.Key and Status["USER_ID"] ~= nil and Status["IP"] ~= nil then
     Connected = true
     ScriptNotification("Verification Success!")
 else
