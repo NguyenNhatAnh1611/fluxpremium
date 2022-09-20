@@ -2,6 +2,12 @@ local HttpService = game:GetService"HttpService"
 local Player = game:GetService"Players".LocalPlayer
 local CoreGui = game:GetService"CoreGui"
 local TweenService = game:GetService"TweenService"
+local Connected = false
+delay(30, function()
+    if Connected == false then
+        Player:Kick("Unable to connect to Flux Database Server \n (Error Code: 405)")
+    end
+end)
 local Response = syn.request({
     Url = "https://fluxdatabase.nguyennhatanh16.repl.co/verify",
     Method = "POST",
@@ -89,13 +95,6 @@ function ScriptNotification(text, time)
     end)
 end
 
-ScriptNotification("Connecting to Flux Database API, please wait...", 3)
-local Connected = false
-delay(15, function()
-    if Connected == false then
-        Player:Kick("\n Unable to connect to Flux Database API \n (Error Code: 405)")
-    end
-end)
 repeat wait() until Response.Body ~= nil
 local Status = HttpService:JSONDecode(Response.Body)
 if Status["VAILD"] == true and Status["HWID"] == _G.Key and Status["USER_ID"] ~= nil and Status["IP"] ~= nil then
