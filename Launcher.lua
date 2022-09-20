@@ -47,7 +47,7 @@ function ScriptNotification(text, time)
     notif.Position = UDim2.new(-0.00114206225, 0, 0.916703701, 0)
     notif.BackgroundTransparency = 1
     notif.Size = UDim2.new(0.991, 0, 0.081, 0)
-    TweenService:Create(notif, TweenInfo.new(0.5), {
+    TweenService:Create(notif, TweenInfo.new(1), {
         ["BackgroundTransparency"] = 0
     }):Play()
 
@@ -94,12 +94,21 @@ function ScriptNotification(text, time)
         ["Size"] = UDim2.new(0, 0, 0.03, 0),
         ["Position"] = UDim2.new(0.5, 0, 0.94, 0)
     }):Play()
-    delat(time, function()
+    delay(time + 1, function()
         TweenService:Create(notif, TweenInfo.new(0.5), {
             ["BackgroundTransparency"] = 1
         }):Play()
+        TweenService:Create(logo, TweenInfo.new(0.5), {
+            ["BackgroundTransparency"] = 1
+        }):Play()
+        TweenService:Create(content, TweenInfo.new(0.5), {
+            ["BackgroundTransparency"] = 1
+        }):Play()
+        TweenService:Create(counter, TweenInfo.new(0.5), {
+            ["BackgroundTransparency"] = 1
+        }):Play()
     end)
-    delay(time + 0.5, function()
+    delay(time + 1.5, function()
         notif:Destroy()
     end)
 end
