@@ -100,7 +100,8 @@ repeat wait() until Response.Body ~= nil
 local Status = HttpService:JSONDecode(Response.Body)
 if Status["VAILD"] == true and Status["HWID"] == _G.Key and Status["USER_ID"] ~= nil and Status["IP"] ~= nil then
     Connected = true
-    ScriptNotification("Verification Success!")
+    ScriptNotification("Verification Success!", 3)
 else
     print(Response.Body)
+    Player:Kick("\n Invaild HWID \n (Error Code: 1)")
 end
