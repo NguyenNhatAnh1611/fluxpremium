@@ -5,6 +5,6 @@ local Response = syn.request({
     Headers = {
         ["Content-Type"] = "application/json"
     }, 
-    Body = HttpService:JSONEncode({['key'] = _G.key} )
+    Body = HttpService:JSONEncode({['key'] = _G.Key} )
 })
 print(Response.Body)
