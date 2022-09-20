@@ -24,8 +24,8 @@ Screen.Parent = CoreGui
 local Notifications = Instance.new("Frame")
 Notifications.Name = "ScriptNotification"
 Notifications.BackgroundTransparency = 1
-Notifications.Size = UDim2.new(0.182, 0, 1, 0, 0)
-Notifications.Position = UDim2.new(0.818, 0, 0, 0)
+Notifications.Size = UDim2.new(0.182, 0, 1, 0)
+Notifications.Position = UDim2.new(0.8, 0, 0, 0)
 Notifications.Parent = Screen
 local NotificationsList = Instance.new("UIListLayout")
 NotificationsList.Parent = Notifications
@@ -45,7 +45,7 @@ function ScriptNotification(text, time)
     notif.Parent = Notifications
     notif.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
     notif.Position = UDim2.new(-0.00114206225, 0, 0.916703701, 0)
-    notif.Size = UDim2.new(1, 0, 66, 0)
+    notif.Size = UDim2.new(0, 346, 0, 66)
 
     UICorner.CornerRadius = UDim.new(0, 12)
     UICorner.Parent = notif
