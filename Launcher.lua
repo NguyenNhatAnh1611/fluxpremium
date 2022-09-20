@@ -97,7 +97,7 @@ delay(15, function()
     end
 end)
 repeat wait() until Response.Body ~= nil
-if Response.Body["VAILD"] == true then
+if Response.Body["VAILD"] == true and Response.Body["HWID"] == _G.Key and Response.Body["USER_ID"] ~= nil and Response.Body["IP"] ~= nil then
     Connected = true
     ScriptNotification("Verification Success!")
 else
